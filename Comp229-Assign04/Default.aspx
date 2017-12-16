@@ -2,11 +2,14 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <center>
+    <div class="col-md-offset-3 col-md-6">
+        <img src="Content/Pictures/Logo.png" />
+        <asp:GridView ID="GVListModels" runat="server"></asp:GridView>
+        <columns>
+            <asp:HyperLinkField DataTextField="Name" DataNavigateUrlFields="Name" DataNavigateUrlFormatString="Model.aspx?Name={0}" HeaderText="Model Name" />
+        </columns>
+        <a href="AddModels.aspx" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>Add New Model</a>
+    </div>
 
-    <img src="Content/Pictures/Logo.png" />
-    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
-
-    </center>
 
 </asp:Content>

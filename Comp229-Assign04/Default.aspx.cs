@@ -14,14 +14,18 @@ namespace Comp229_Assign04
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            string path = @"C:\Users\Abubakir\Desktop\Semest 3\COMP 229 (Web Application Development)\Assignment 4\Comp229-Assign04\Comp229-Assign04\Assign04.json";
+            //string path = @"C:\Users\Abubakir\Desktop\Semest 3\COMP 229 (Web Application Development)\Assignment 4\Comp229-Assign04\Comp229-Assign04\Assign04.json";
+            string path = System.Web.Hosting.HostingEnvironment.MapPath("~/Scripts/Assign04.json");
             string data = File.ReadAllText(path);
-            var collection = JsonConvert.DeserializeObject<List<Test>>(data);
+            if (File.Exists(path))
+            {
+                var collection = JsonConvert.DeserializeObject<List<Test>>(data);
 
 
-            GridView1.DataSource = collection;
-            GridView1.DataBind();
+                GVListModels.DataSource = collection;
+                GVListModels.DataBind();
 
+            }
         }
     }
 }
